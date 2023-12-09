@@ -2,8 +2,13 @@ package com.gut.customer;
 
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
 @Service
-public record CustomerService(CustomerRepository customerRepository) {// inyecta el repository
+@AllArgsConstructor
+public class CustomerService {// inyecta el repository
+	
+	private final CustomerRepository customerRepository; //sin lombok -> public record CustomerService(CustomerRepository customerRepository) 
 
 	public void registerCustomer(CustomerRegistrationRequest request) {
 		Customer customer = Customer.builder()

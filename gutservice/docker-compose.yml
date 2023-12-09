@@ -13,7 +13,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-  
+  #deberia usar un contenedor de postgres por cada modulo o microservicio, pero para este proyecto usaré una bbdd por cada micro en el mismo contenedor
 
   pgadmin:
     container_name: pgadmin
