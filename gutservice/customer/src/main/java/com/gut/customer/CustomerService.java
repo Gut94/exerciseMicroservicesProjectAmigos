@@ -24,6 +24,7 @@ public class CustomerService {// inyecta el repository
 		customerRepository.saveAndFlush(customer);
 		
 		//comprobar si es estafa mediante rest template con el micro fraud
+		//todo add discovery service para no depender de indicar cada puerto
 		FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://localhost:8081/api/v1/fraud-check/{customerId}", 
 				FraudCheckResponse.class, 
 				customer.getId());
