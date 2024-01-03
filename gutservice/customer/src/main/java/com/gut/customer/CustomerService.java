@@ -25,7 +25,10 @@ public class CustomerService {// inyecta el repository
 		
 		//comprobar si es estafa mediante rest template con el micro fraud
 		//todo add discovery service para no depender de indicar cada puerto
-		FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://localhost:8081/api/v1/fraud-check/{customerId}", 
+		//de esta forma se indica el puerto a pincho
+		//FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://localhost:8081/api/v1/fraud-check/{customerId}",
+		//usando eureka con el nombre que le da FRAUD
+		FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD/api/v1/fraud-check/{customerId}",
 				FraudCheckResponse.class, 
 				customer.getId());
 		
